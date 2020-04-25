@@ -1,0 +1,187 @@
+%Metroplolis Beamer Theme: https://github.com/matze/mtheme
+\documentclass[10pt]{beamer}
+
+\setbeamercolor{background canvas}{bg=white}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{cancel}
+\usepackage{color}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+
+\newcommand{\light}[1]{\textcolor{gray}{#1}}
+
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+\title{Genetic Circuit Design Automation}
+\subtitle{Voigt et al. \textbf{Nature} 2016}
+% \date{\today}
+\date{}
+\author{Gian Hiltbrunner}
+\institute{CBB Seminar, ETH Zurich}
+\titlegraphic{\vspace{4.5cm}\hfill\includegraphics[width = 5cm]{circuit.png}}
+
+\begin{document}
+
+\maketitle
+
+%\begin{frame}{Table of contents}
+%  \setbeamertemplate{section in toc}[sections numbered]
+%  \tableofcontents%[hideallsubsections]
+%\end{frame}
+
+\begin{frame}[fragile]{Introduction}
+
+    {\metroset{block=fill}
+      \begin{block}{Situation}
+        Biotechnology depends on harnessing the ability of cells to perform computational operations. 
+      \end{block}
+      \begin{alertblock}{Problem}
+        Designing synthetic genetic circuits is time-intensive and unreliable. 
+      \end{alertblock}
+      \begin{exampleblock}{Proposed Resolution}
+        There exist systems used in electrical engineering that describe electronic circuits in special description languages. This system could be adapted for biological applications.
+      \end{exampleblock}}
+      
+\end{frame}
+
+\begin{frame}{Introduction}
+  \begin{itemize}[<+- | alert@+>]
+    \item Circuits require precise balancing of regulator expression
+    \item Many parts are combined to build a circuit, whose functions can vary according to cellular context
+    \item Circuits are defined by many states, which can be hard to characterize
+    \item Many regulators show toxicity at higher concentrations
+    \item[$\rightarrow$] Balancing these issues is difficult, we need computational support
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Introduction}
+
+    {\metroset{block=fill}
+    
+      \begin{block}{Situation}
+      
+        \light{Biotechnology depends on harnessing the ability of cells to perform computational operations. }
+      \end{block}
+      \begin{block}{Problem}
+        \light{Designing synthetic genetic circuits is time-intensive and unreliable.}
+      \end{block}
+      \begin{exampleblock}{Proposed Resolution}
+        There exist systems used in electrical engineering that describe electronic circuits in special description languages. This system could be adapted for biological applications.
+      \end{exampleblock}}
+      
+\end{frame}
+
+\begin{frame}{Technology}
+
+\vspace{0.5cm}
+\begin{figure}
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1\textwidth]{{gate_technology}}}%
+\end{figure}
+
+\nocite{Brophy2014PrinciplesDesign} 
+\end{frame}
+
+\begin{frame}{Methods}
+
+\vspace{0.5cm}
+\begin{figure}
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{{overview.jpg}}}%
+\end{figure}
+
+\nocite{Nielsen2016GeneticAutomation} 
+\end{frame}
+
+\begin{frame}{Showcase}
+
+    \begin{minipage}{.4\textwidth}
+        \centering
+        \begin{itemize}
+            \item Insulated gates were used to create 52 circuits. 
+            \item Circuit output is linked to expression of YFP.
+            \item Output states were experimentally measured using flow cytometry and compared to the predictions. 
+        \end{itemize}
+    \end{minipage}%
+    \begin{minipage}{.6\textwidth}
+        \centering
+        \includegraphics[width=13cm]{examples.jpg}
+    \end{minipage}
+
+\end{frame}
+
+\begin{frame}{Challenges}
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{{challenges}}}%
+\end{frame}
+
+
+
+\begin{frame}{Discussion}
+  \begin{itemize}[<+- | alert@+>]
+    \item Circuits design has been dominated by manual tinkering, Cello automates the selection and concatenation of parts considering additional constraints
+    \item This allows for the design of larger more complex multi-part systems
+    \item 45 out of 60 Cello designed circuits functioned as expected, the largest containing over 12 promotors, thus doubling previous records 
+    \item Of 412 output states 92 \% were found to be correct.
+    \item[] \begin{quote}
+        \vspace{0.2cm}
+        "By controlling [...] when genes are turned on to designing therapeutic agents that are programmed to sense a problem in the body and perform a therapeutic action." [R. Cloney]
+    \end{quote}
+  \end{itemize}
+  \nocite{Cloney2016SyntheticDesign}
+\end{frame}
+
+
+{
+    \setbeamercolor{palette primary}{fg=black, bg=yellow}
+    \begin{frame}[standout]
+        \vspace{3cm}
+        Questions?
+        \vspace{3cm}
+        {
+            \footnotesize
+            \begin{center}\url{github.com/gianhiltbrunner/GeneticCircuitDesignAutomationTalk}\end{center}
+            
+            \begin{center}\ccbysa\end{center}
+        } 
+    \end{frame}
+}
+
+\appendix
+
+\begin{frame}[allowframebreaks]{References}
+
+  \bibliography{references}
+  \bibliographystyle{abbrv}
+
+\end{frame}
+
+\begin{frame}{}
+    
+\end{frame}
+
+\end{document}
